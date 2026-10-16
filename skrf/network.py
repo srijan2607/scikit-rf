@@ -1404,11 +1404,11 @@ class Network:
         ----------
         .. [#] http://en.wikipedia.org/wiki/impedance_parameters
         """
-        return s2a(self.s, self.z0)
+        return s2a(self.s_power, self.z0)
 
     @a.setter
     def a(self, value: np.ndarray) -> None:
-        self._s = a2s(fix_param_shape(value), self.z0)
+        self.s_power = a2s(fix_param_shape(value), self.z0)
 
     @property
     def z0(self) -> np.ndarray:
